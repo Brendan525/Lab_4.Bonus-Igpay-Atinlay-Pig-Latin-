@@ -66,8 +66,7 @@ namespace Lab_4.Bonus_Igpay_Atinlay__Pig_Latin_
             }
             else
             {
-                // handle single consonants
-                Regex entry = new Regex(@"^([bcdfghjklmnpqrstvwxyz][^0-9|@|!|#|$|%|^|&|*|(|)|-|=|+|_|[|\]|\|\||,|<|.|>|/|\|?|][^\w{5,30}@\w{5,10}\.\w{2,3}])"); // Regex entry = new Regex(@"^([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])");              
+                Regex entry = new Regex(@"^([bcdfghjklmnpqrstvwxyz]([^0-9|@|!|#|$|%|^|&|*|(|)|-|=|+|_|[|\]|\|\||,|<|.|>|/|\|?][^\w{5,30}@\w{5,10}\.\w{2,3}]))"); // Regex entry = new Regex(@"^([bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])");              
 
                 bool matched = entry.IsMatch(word);
 
@@ -77,19 +76,18 @@ namespace Lab_4.Bonus_Igpay_Atinlay__Pig_Latin_
 
                     Console.WriteLine(newWord);
                 }
-                //else if (!matched)
-                //{
-                //    Console.WriteLine($"{word} is invalid");
-                //}
-
-            }            
+                else if (!matched)
+                {
+                    Console.WriteLine($"{word} is invalid");
+                }
+            }
         }
 
         static void Vowels(ref string word)
         {
             string vowel = "way";
 
-            Regex entry = new Regex(@"^([aeiou][^0-9|@|!|#|$|%|^|&|*|(|)|-|=|+|_|[|\]|\|\||,|<|.|>|/|\|?|][^\w{5,30}@\w{5,10}\.\w{2,3}])"); // Regex entry = new Regex(@"^([aeiouAEIOU])");
+            Regex entry = new Regex(@"^([aeiou]([^0-9|@|!|#|$|%|^|&|*|(|)|-|=|+|_|[|\]|\|\||,|<|.|>|/|\|?][^\w{5,30}@\w{5,10}\.\w{2,3}]))"); // Regex entry = new Regex(@"^([aeiouAEIOU])");
 
             bool matched = entry.IsMatch(word);
 
@@ -98,10 +96,7 @@ namespace Lab_4.Bonus_Igpay_Atinlay__Pig_Latin_
                 string newWord = string.Concat(word, vowel);
                 Console.WriteLine(newWord);
             }
-            //else if (!matched)
-            //{
-            //    Console.WriteLine($"{word} is invalid");
-            //}
+           
         }
     }
 }
